@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import signupp from "../../images/signupppp.jpg";
+import login from "../../images/login.jpg";
 
 const Login = () => {
   return (
@@ -10,7 +10,7 @@ const Login = () => {
           className="card-body"
           style={{ paddingLeft: "0", paddingRight: "0" }}
         >
-          <img src={signupp} style={{ height: "100%" }} alt="" />
+          <img src={login} style={{ height: "100%" }} alt="" />
         </div>
       </div>
       <div className="card w-96 bg-base-100 shadow-xl px-3">
