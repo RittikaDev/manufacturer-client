@@ -18,7 +18,7 @@ const Navbar = () => {
         <CustomLink to="/contact">Contact</CustomLink>
       </li>
       <li>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/signup">Signup</CustomLink>
       </li>
     </>
   );
@@ -51,7 +51,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
+        <a className="btn btn-ghost normal-case text-xl">TechWorld</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         {/* For bigger screen */}
