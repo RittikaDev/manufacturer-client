@@ -1,0 +1,65 @@
+body {
+	overflow-x: hidden;
+}
+.step {
+	margin: 300px auto;
+}
+.step img {
+	width: 80px;
+	margin: 20px auto;
+}
+ul {
+	text-align: center;
+}
+ul li {
+	display: inline-block;
+	width: 360px;
+	position: relative;
+}
+ul li i {
+	background: #ccc;
+	width: 16px;
+	height: 16px;
+	color: #fff;
+	border-radius: 50%;
+	padding: 5px;
+}
+@media (min-width: 768px) {
+	ul li i::after {
+		content: " ";
+		background: #ccc;
+		height: 5px;
+		width: 365px;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 150px;
+		z-index: -1;
+	}
+	ul li:nth-child(3) i {
+		background: #148e14;
+	}
+	ul li:nth-child(3) i::after {
+		background: #148e14;
+	}
+	ul li:nth-child(1) i::after,
+	ul li:nth-child(2) i::after {
+		background: #60aa97;
+	}
+	ul li:nth-child(1) i,
+	ul li:nth-child(2) i {
+		background: #60aa97;
+	}
+	ul li:first-child i::after {
+		width: 180px;
+		left: 180px;
+	}
+	ul li:last-child i::after {
+		width: 180px;
+	}
+}
+@media (max-width: 768px) {
+	body {
+		overflow-x: hidden;
+	}
+}
