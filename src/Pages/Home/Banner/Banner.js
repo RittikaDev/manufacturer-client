@@ -3,6 +3,7 @@ import React from "react";
 import banner from "../../../images/banner (2).jpg";
 import BusinessSummary from "../BusinessSummary/BusinessSummary";
 import Parts from "../Parts/Parts";
+import Reviews from "../Reviews/Reviews";
 import Steps from "../Steps/Steps";
 import "./Banner.css";
 
@@ -61,6 +62,7 @@ const Banner = () => {
 			<Parts />
 			<BusinessSummary />
 			<Steps />
+			<Reviews />
 		</>
 	);
 };

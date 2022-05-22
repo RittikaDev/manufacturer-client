@@ -4,7 +4,7 @@ import "./Parts.css";
 const Parts = () => {
 	return (
 		<section class="cards">
-			<article class="card card--1">
+			<article class="cardp card--1">
 				<div class="card__info-hover">
 					<svg class="card__like" viewBox="0 0 24 24">
 						<path
@@ -35,7 +35,7 @@ const Parts = () => {
 				</div>
 			</article>
 
-			<article class="card card--2">
+			<article class="cardp card--2">
 				<div class="card__info-hover">
 					<svg class="card__like" viewBox="0 0 24 24">
 						<path
@@ -65,7 +65,7 @@ const Parts = () => {
 					</span>
 				</div>
 			</article>
-			<article class="card card--1">
+			<article class="cardp card--1">
 				<div class="card__info-hover">
 					<svg class="card__like" viewBox="0 0 24 24">
 						<path
