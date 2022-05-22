@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Ram",
+    "image": "https://i.ibb.co/bm92WSr/ram.jpg",
+    "description": "Lenovo Tab M10 2GB RAM 32GB Storage Wi-Fi 4G LTE 10-Inch Tablet",
+    "minquantity": "20",
+    "availquantity": "100",
+    "price": "2000"
+  },
+  {
+    "id": 2,
+    "name": "SSD",
+    "image": "https://i.ibb.co/CMtvjnz/ssd.jpg",
+    "description": "Transcend SSD220S 1TB M.2 PCIe Gen3 x4 SSD",
+    "minquantity": "25",
+    "availquantity": "120",
+    "price": "540"
+  },
+  {
+    "id": 3,
+    "name": "Processor",
+    "image": "https://i.ibb.co/26r8W1y/processor.jpg",
+    "description": "AMD Athlon 3000G Processor with Radeon Graphics",
+    "minquantity": "22",
+    "availquantity": "230",
+    "price": "390"
+  },
+  {
+    "id": 4,
+    "name": "Motherboard",
+    "image": "https://i.ibb.co/T1CZ1vG/motherboard.jpg",
+    "description": "ASRock H370M-HDV Motherboard & Intel Core i5-9500 Processor (Tray) Bundle",
+    "minquantity": "22",
+    "availquantity": "290",
+    "price": "430"
+  },
+
+  {
+    "id": 5,
+    "name": "Microchip",
+    "image": "https://i.ibb.co/CMSZM0t/microchip.jpg",
+    "description": "Intel Core i3 10105F 10th Gen Processor",
+    "minquantity": "28",
+    "availquantity": "322",
+    "price": "380"
+  },
+
+  {
+    "id": 6,
+    "name": "Graphics Card",
+    "image": "https://i.ibb.co/cTGkLyq/graphics.jpg",
+    "description": "Colorful GeForce GTX1050Ti 4G-V 4GB GDDR5 Graphics Card",
+    "minquantity": "12",
+    "availquantity": "320",
+    "price": "570"
+  }
+]
