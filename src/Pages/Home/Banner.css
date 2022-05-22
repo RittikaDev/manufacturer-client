@@ -1,13 +1,19 @@
 .banner {
-  background-image: url("../../images/bannerbg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  filter: grayscale(55%);
-  /* filter: blur(1px); */
-  /* -webkit-filter: blur(8px); */
+	background-image: url("../../images/bannerbg.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* height: 80vh; */
+	/* filter: grayscale(55%); */
+	/* filter: blur(1px); */
+	/* -webkit-filter: blur(8px); */
 }
-.banner img {
-  filter: grayscale(-50%);
+img {
+	margin-left: auto;
+	margin-right: auto;
+}
+.banner-first {
+	color: #fff;
+	/* font-size: bold;
+	font-weight: 700; */
 }
