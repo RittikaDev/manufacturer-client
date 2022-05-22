@@ -1,6 +1,7 @@
 import "aos/dist/aos.css";
 import React from "react";
 import banner from "../../../images/banner (2).jpg";
+import BusinessSummary from "../BusinessSummary/BusinessSummary";
 import Parts from "../Parts/Parts";
 import "./Banner.css";
 
@@ -57,6 +58,7 @@ const Banner = () => {
 				</div>
 			</div>
 			<Parts />
+			<BusinessSummary />
 		</>
 	);
 };
