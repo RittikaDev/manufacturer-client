@@ -14,7 +14,7 @@ const Banner = () => {
 						data-aos-delay="400"
 						data-aos-duration="1000"
 						data-aos-easing="ease-in-out"
-						className="text-5xl flex justify-center "
+						className="md:text-7xl text-3xl text-center font-black"
 					>
 						TechWorld
 					</p>
@@ -23,10 +23,21 @@ const Banner = () => {
 						data-aos-delay="800"
 						data-aos-duration="1000"
 						data-aos-easing="ease-in-out"
-						className="text-3xl flex justify-center  mt-5"
+						className="md:text-5xl text-2xl text-center mt-5 font-bold"
 					>
 						You Best Find Of Computer Parts
 					</p>
+					<div className="text-center">
+						<button
+							data-aos="fade-down"
+							data-aos-delay="1400"
+							data-aos-duration="1000"
+							data-aos-easing="ease-in-out"
+							class="btn glass md:text-xl text-lg w-90 mt-5 font-bold  w-2/4"
+						>
+							Glass button
+						</button>
+					</div>
 				</div>
 				<div
 					data-aos="zoom-in"
