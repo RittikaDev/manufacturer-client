@@ -6,16 +6,16 @@ import Signup from "./Pages/Login/Signup";
 import Navbar from "./Pages/Shared/Navbar";
 
 function App() {
-	return (
-		<div className="mx-12">
-			<Navbar />
-			<Routes>
-				<Route path="/" element={<Banner />} />
-				<Route path="signup" element={<Signup />} />
-				<Route path="login" element={<Login />} />
-			</Routes>
-		</div>
-	);
+  return (
+    <div className="mx-12">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Banner />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
