@@ -15,6 +15,9 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth);
   // Google
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  // update profile
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const {
     register,
     formState: { errors },
@@ -33,6 +36,7 @@ const Signup = () => {
   const onSubmit = async (data) => {
     console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
   };
   return (
     <div className="flex mt-7 justify-center items-center">

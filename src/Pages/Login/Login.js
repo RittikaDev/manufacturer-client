@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import login from "../../images/login.jpg";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   // Email & Password
@@ -29,6 +30,11 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, [navigate, from, user, gUser]);
+
+  if (loading || gLoading) {
+    return <Loading />;
+  }
+
   const onSubmit = (data) => {
     console.log(data);
 
@@ -134,15 +140,15 @@ const Login = () => {
             <input
               className="btn w-full max-w-xs mt-4"
               type="submit"
-              value="SiGNUP"
+              value="LOGIN"
             />
           </form>
 
           <p>
             <small>
-              Already Have An Account?{" "}
-              <Link className="text-primary" to="/login">
-                Login
+              Don't Have An Account?{" "}
+              <Link className="text-primary" to="/signup">
+                Signup
               </Link>
             </small>
           </p>
