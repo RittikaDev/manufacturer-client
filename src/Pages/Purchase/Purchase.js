@@ -11,7 +11,6 @@ const Purchase = () => {
   const [part, setPart] = useParts(id);
   const [input, setInput] = useState(0);
   const [finalInput, setFinalInput] = useState(0);
-  const [finalInputError, setFinalInputError] = useState(true);
   const [increaseInputError, setIncreaseInputError] = useState(true);
   const [decreaseInputError, setDecreaseInputError] = useState(true);
   const [user, loading, error] = useAuthState(auth);
@@ -59,7 +58,10 @@ const Purchase = () => {
         quantity: finalInput,
       };
       console.log(orderParts);
-      axios.post();
+      axios.post("http://localhost:5000/part", orderParts).then((res) => {
+        console.log(res);
+        const { data } = res;
+      });
     }
   };
   return (
@@ -150,28 +152,18 @@ const Purchase = () => {
               ""
             )}
           </div>
-          {/* <form className="inventory-textbox" onSubmit={decreaseQuantity}>
-            <input
-              type="text"
-              placeholder="Decrease Amount"
-              class="input input-bordered w-full max-w-xs"
-              onBlur={decreaseInputs}
-            />
-            <button className="btn py-2">Decrease</button>
-            {!decreaseInputError ? (
-              <div>Minimum Order {part.minquantity}</div>
-            ) : (
-              ""
-            )}
-          </form> */}
         </div>
 
         <div className="text-center py-2">
-          <button className="btn py-2">Order</button>
           {finalInput === input ? (
-            ""
+            <button className="btn py-2">Order</button>
           ) : (
-            <p>Click On Increase Or Decrease Button</p>
+            <>
+              <button disabled className="btn py-2">
+                Order
+              </button>
+              <p>Click On Increase Or Decrease Button</p>
+            </>
           )}
         </div>
       </form>
