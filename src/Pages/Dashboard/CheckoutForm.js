@@ -10,8 +10,7 @@ const CheckoutForm = ({ payment }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
-  const { _id, price, patient, patientName } = payment;
-  console.log(price);
+  const { _id, price, email, username } = payment;
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
@@ -47,46 +46,46 @@ const CheckoutForm = ({ payment }) => {
     setCardError(error?.message || "");
     setSuccess("");
     setProcessing(true);
-    // confirm card payment
-    // const { paymentIntent, error: intentError } =
-    //   await stripe.confirmCardPayment(clientSecret, {
-    //     payment_method: {
-    //       card: card,
-    //       billing_details: {
-    //         name: patientName,
-    //         email: patient,
-    //       },
-    //     },
-    //   });
+    const { paymentIntent, error: intentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: username,
+            email: email,
+          },
+        },
+      });
 
-    // if (intentError) {
-    //   setCardError(intentError?.message);
-    //   setProcessing(false);
-    // } else {
-    //   setCardError("");
-    //   setTransactionId(paymentIntent.id);
-    //   console.log(paymentIntent);
-    //   setSuccess("Congrats! Your payment is completed.");
+    if (intentError) {
+      setCardError(intentError?.message);
+      setProcessing(false);
+    } else {
+      setCardError("");
+      setTransactionId(paymentIntent.id);
+      console.log(paymentIntent);
+      setSuccess("Your payment is completed!");
 
-    //   //store payment on database
-    //   const payment = {
-    //     appointment: _id,
-    //     transactionId: paymentIntent.id,
-    //   };
-    //   fetch(`https://secret-dusk-46242.herokuapp.com/booking/${_id}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "content-type": "application/json",
-    //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //     },
-    //     body: JSON.stringify(payment),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setProcessing(false);
-    //       console.log(data);
-    //     });
-    // }
+      //   store payment on database
+      const payment = {
+        payment: _id,
+        transactionId: paymentIntent.id,
+      };
+      console.log(payment);
+      fetch(`http://localhost:5000/part/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProcessing(false);
+          console.log(data);
+        });
+    }
   };
   return (
     <>

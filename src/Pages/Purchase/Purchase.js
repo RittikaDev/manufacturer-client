@@ -58,10 +58,22 @@ const Purchase = () => {
         quantity: finalInput,
       };
       console.log(orderParts);
-      axios.post("http://localhost:5000/part", orderParts).then((res) => {
-        console.log(res);
-        const { data } = res;
-      });
+      fetch("http://localhost:5000/part", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(orderParts),
+      })
+        .then((res) => res.json())
+        .then((d) => {
+          console.log(d);
+          const { data } = d;
+        });
+      // axios.post("http://localhost:5000/part", orderParts).then((res) => {
+      //   console.log(res);
+      //   const { data } = res;
+      // });
     }
   };
   return (
