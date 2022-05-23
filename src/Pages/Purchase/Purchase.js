@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Purchase.css";
 import useParts from "../../hooks/useParts";
@@ -8,8 +8,41 @@ import auth from "../../firebase.init";
 const Purchase = () => {
   const { id } = useParams();
   const [part, setPart] = useParts(id);
+  const [increaseInput, setIncreaseInput] = useState(0);
+  const [increaseInputError, setIncreaseInputError] = useState(true);
+  const [decreaseInput, setDecreaseInput] = useState(0);
+  const [decreaseInputError, setDecreaseInputError] = useState(true);
   const [user, loading, error] = useAuthState(auth);
   console.log(user);
+
+  //Input value to increase order items
+  const increaseInputs = (e) => {
+    let inputValue = parseInt(e.target.value);
+    console.log(inputValue);
+    setIncreaseInput(inputValue);
+  };
+  console.log(increaseInput);
+  const increaseQuantity = (e) => {
+    e.preventDefault();
+    setIncreaseInputError(false);
+    if (increaseInput > 0 && increaseInput <= part.availquantity) {
+      setIncreaseInputError(true);
+    }
+  };
+  //Input value to decrease order items
+  const decreaseInputs = (e) => {
+    let inputValue = parseInt(e.target.value);
+    console.log(inputValue);
+    setDecreaseInput(inputValue);
+  };
+  console.log(decreaseInput);
+  const decreaseQuantity = (e) => {
+    e.preventDefault();
+    setDecreaseInputError(false);
+    if (decreaseInput > 0 && decreaseInput >= part.minquantity) {
+      setDecreaseInputError(true);
+    }
+  };
   return (
     <>
       <div className="inventory-content mb-8 purchase">
@@ -77,22 +110,30 @@ const Purchase = () => {
           </p>
         </div>
         <div className="grid grid-cols-2 mt-1">
-          <p className="inventory-textbox">
+          <form className="inventory-textbox" onSubmit={increaseQuantity}>
             <input
-              type="text"
+              type="number"
               placeholder="Increase Amount"
               class="input input-bordered w-full max-w-xs"
+              onBlur={increaseInputs}
             />
             <button className="btn py-2">Increase</button>
-          </p>
-          <p className="inventory-textbox">
+            {!increaseInputError ? <div>Not enough quantity IN STOCK</div> : ""}
+          </form>
+          <form className="inventory-textbox" onSubmit={decreaseQuantity}>
             <input
               type="text"
               placeholder="Decrease Amount"
               class="input input-bordered w-full max-w-xs"
+              onBlur={decreaseInputs}
             />
             <button className="btn py-2">Decrease</button>
-          </p>
+            {!decreaseInputError ? (
+              <div>Minimum Order {part.minquantity}</div>
+            ) : (
+              ""
+            )}
+          </form>
         </div>
 
         <div className="text-center py-2">
