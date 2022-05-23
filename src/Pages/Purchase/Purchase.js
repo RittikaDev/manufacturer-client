@@ -4,13 +4,15 @@ import "./Purchase.css";
 import useParts from "../../hooks/useParts";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import axios from "axios";
 
 const Purchase = () => {
   const { id } = useParams();
   const [part, setPart] = useParts(id);
-  const [increaseInput, setIncreaseInput] = useState(0);
+  const [input, setInput] = useState(0);
+  const [finalInput, setFinalInput] = useState(0);
+  const [finalInputError, setFinalInputError] = useState(true);
   const [increaseInputError, setIncreaseInputError] = useState(true);
-  const [decreaseInput, setDecreaseInput] = useState(0);
   const [decreaseInputError, setDecreaseInputError] = useState(true);
   const [user, loading, error] = useAuthState(auth);
   console.log(user);
@@ -18,29 +20,46 @@ const Purchase = () => {
   //Input value to increase order items
   const increaseInputs = (e) => {
     let inputValue = parseInt(e.target.value);
-    console.log(inputValue);
-    setIncreaseInput(inputValue);
+    setInput(inputValue);
   };
-  console.log(increaseInput);
+  console.log(input);
   const increaseQuantity = (e) => {
     e.preventDefault();
     setIncreaseInputError(false);
-    if (increaseInput > 0 && increaseInput <= part.availquantity) {
+    setDecreaseInputError(true);
+    console.log(input);
+    if (input > 0 && input <= part.availquantity) {
+      console.log(input);
       setIncreaseInputError(true);
+      setFinalInput(input);
+      //   setDecreaseInputError(false);
     }
   };
   //Input value to decrease order items
-  const decreaseInputs = (e) => {
-    let inputValue = parseInt(e.target.value);
-    console.log(inputValue);
-    setDecreaseInput(inputValue);
-  };
-  console.log(decreaseInput);
   const decreaseQuantity = (e) => {
     e.preventDefault();
     setDecreaseInputError(false);
-    if (decreaseInput > 0 && decreaseInput >= part.minquantity) {
+    setIncreaseInputError(true);
+    if (input > 0 && input >= part.minquantity) {
       setDecreaseInputError(true);
+      setFinalInput(input);
+    }
+  };
+
+  //  place order
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Order placed");
+    if (finalInput === input) {
+      const orderParts = {
+        email: user?.email,
+        username: user?.displayName,
+        name: part.name,
+        price: part.price,
+        quantity: finalInput,
+      };
+      console.log(orderParts);
+      axios.post();
     }
   };
   return (
@@ -71,7 +90,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
-      <div className="inventory-text mx-16 my-5">
+      <form className="inventory-text mx-16 my-5" onSubmit={handleSubmit}>
         <div className="inventory-textbox mb-1">
           <h4 className="text-center font-bold">Place An Order</h4>
         </div>
@@ -109,18 +128,29 @@ const Purchase = () => {
             />
           </p>
         </div>
-        <div className="grid grid-cols-2 mt-1">
-          <form className="inventory-textbox" onSubmit={increaseQuantity}>
+        <div className="grid grid-cols-1 mt-1">
+          {/* <form className="inventory-textbox" onSubmit={increaseQuantity}> */}
+          <div className="inventory-textbox">
             <input
               type="number"
               placeholder="Increase Amount"
               class="input input-bordered w-full max-w-xs"
               onBlur={increaseInputs}
             />
-            <button className="btn py-2">Increase</button>
+            <button className="btn py-2" onClick={increaseQuantity}>
+              Increase
+            </button>
+            <button className="btn py-2" onClick={decreaseQuantity}>
+              Decrease
+            </button>
             {!increaseInputError ? <div>Not enough quantity IN STOCK</div> : ""}
-          </form>
-          <form className="inventory-textbox" onSubmit={decreaseQuantity}>
+            {!decreaseInputError ? (
+              <div>Minimum Order {part.minquantity}</div>
+            ) : (
+              ""
+            )}
+          </div>
+          {/* <form className="inventory-textbox" onSubmit={decreaseQuantity}>
             <input
               type="text"
               placeholder="Decrease Amount"
@@ -133,13 +163,18 @@ const Purchase = () => {
             ) : (
               ""
             )}
-          </form>
+          </form> */}
         </div>
 
         <div className="text-center py-2">
-          <button className="btn py-2">Delivered</button>
+          <button className="btn py-2">Order</button>
+          {finalInput === input ? (
+            ""
+          ) : (
+            <p>Click On Increase Or Decrease Button</p>
+          )}
         </div>
-      </div>
+      </form>
     </>
   );
 };
