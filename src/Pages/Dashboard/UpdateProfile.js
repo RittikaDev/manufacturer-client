@@ -18,6 +18,7 @@ const UpdateProfile = () => {
       education: e.target.education.value,
       linkedin: e.target.linkedin.value,
     };
+    console.log(user);
     const url = `http://localhost:5000/user/${id}`;
     fetch(url, {
       method: "PUT",
@@ -50,18 +51,23 @@ const UpdateProfile = () => {
       </div>
       <div className="grid grid-cols-2 mt-1">
         <p className="inventory-textbox">
-          <input type="text" placeholder="Address" name="address" />
+          <input required type="text" placeholder="Address" name="address" />
         </p>
         <p className="inventory-textbox">
-          <input type="number" placeholder="Phone" name="phone" />
+          <input required type="number" placeholder="Phone" name="phone" />
         </p>
       </div>
       <div className="grid grid-cols-2 mt-1">
         <p className="inventory-textbox">
-          <input type="text" placeholder="Education" name="education" />
+          <input
+            required
+            type="text"
+            placeholder="Education"
+            name="education"
+          />
         </p>
         <p className="inventory-textbox">
-          <input type="text" placeholder="LinkedIn" name="linkedin" />
+          <input required type="text" placeholder="LinkedIn" name="linkedin" />
         </p>
       </div>
       <div className="text-center py-2">

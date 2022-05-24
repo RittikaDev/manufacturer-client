@@ -12,6 +12,7 @@ import Payment from "./Pages/Dashboard/Payment";
 import AddReview from "./Pages/Dashboard/AddReview";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import UpdateProfile from "./Pages/Dashboard/UpdateProfile";
+import Users from "./Pages/Dashboard/Users";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="review" element={<AddReview />}></Route>
           <Route path="profile" element={<MyProfile />}></Route>
           <Route path="profile/user/:id" element={<UpdateProfile />}></Route>
+          <Route path="users" element={<Users />}></Route>
         </Route>
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />

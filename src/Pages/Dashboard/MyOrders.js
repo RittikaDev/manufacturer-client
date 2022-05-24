@@ -14,17 +14,17 @@ const MyOrders = () => {
     if (user) {
       fetch(`http://localhost:5000/part?email=${user.email}`, {
         method: "GET",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        // },
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
       })
         .then((res) => {
-          //   console.log("res", res);
-          //   if (res.status === 401 || res.status === 403) {
-          //     signOut(auth);
-          //     localStorage.removeItem("accessToken");
-          //     navigate("/");
-          //   }
+          console.log("res", res);
+          if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem("accessToken");
+            navigate("/");
+          }
           return res.json();
         })
         .then((data) => setOrders(data));

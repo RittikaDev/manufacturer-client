@@ -8,6 +8,7 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const Signup = () => {
   // Email & Password
@@ -18,6 +19,7 @@ const Signup = () => {
 
   // update profile
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user || gUser);
   const {
     register,
     formState: { errors },
@@ -32,6 +34,10 @@ const Signup = () => {
       navigate(from, { replace: true });
     }
   }, [navigate, from, user]);
+
+  // if (token) {
+  //   navigate(from, { replace: true });
+  // }
 
   const onSubmit = async (data) => {
     console.log(data);
