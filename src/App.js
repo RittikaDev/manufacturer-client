@@ -16,6 +16,8 @@ import Users from "./Pages/Dashboard/Users";
 import { ToastContainer } from "react-toastify";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddProduct from "./Pages/Dashboard/AddProduct";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 
 function App() {
   return (
@@ -39,10 +41,10 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders />}></Route>
+          <Route path="orders" element={<MyOrders />}></Route>
           <Route path="payment/:id" element={<Payment />}></Route>
           <Route path="review" element={<AddReview />}></Route>
-          <Route path="profile" element={<MyProfile />}></Route>
+          <Route index element={<MyProfile />}></Route>
           <Route path="profile/user/:id" element={<UpdateProfile />}></Route>
           <Route
             path="users"
@@ -61,18 +63,18 @@ function App() {
             }
           ></Route>
           <Route
-            path="users"
+            path="manageproduct"
             element={
               <RequireAdmin>
-                <Users />
+                <ManageProducts />
               </RequireAdmin>
             }
           ></Route>
           <Route
-            path="users"
+            path="manageall"
             element={
               <RequireAdmin>
-                <Users />
+                <ManageAllOrders />
               </RequireAdmin>
             }
           ></Route>
