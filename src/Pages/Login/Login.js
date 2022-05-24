@@ -120,7 +120,7 @@ const Login = () => {
                   required: { value: true, message: "Password is required" },
                   minLength: {
                     value: 6,
-                    message: "Must be six characters or longer", // JS only: <p>error message</p> TS only support string
+                    message: "Must be six characters or longer",
                   },
                 })}
               />

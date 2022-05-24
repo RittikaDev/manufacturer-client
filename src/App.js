@@ -9,6 +9,9 @@ import Purchase from "./Pages/Purchase/Purchase";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import Payment from "./Pages/Dashboard/Payment";
+import AddReview from "./Pages/Dashboard/AddReview";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import UpdateProfile from "./Pages/Dashboard/UpdateProfile";
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
         >
           <Route index element={<MyOrders />}></Route>
           <Route path="payment/:id" element={<Payment />}></Route>
+          <Route path="review" element={<AddReview />}></Route>
+          <Route path="profile" element={<MyProfile />}></Route>
+          <Route path="profile/user/:id" element={<UpdateProfile />}></Route>
         </Route>
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />

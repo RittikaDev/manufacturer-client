@@ -54,5 +54,43 @@
     "minquantity": "12",
     "availquantity": "320",
     "price": "570"
+  },
+  {
+    "id": 1,
+    "name": "Jack",
+    "review": "High Quality Products",
+    "ratings": 4
+  },
+  {
+    "id": 2,
+    "name": "Shane",
+    "review": "My First Choice",
+    "ratings": 5
+  },
+  {
+    "id": 3,
+    "name": "Mim",
+    "review": "Never Got Dissapointed",
+    "ratings": 4
+  },
+  {
+    "id": 4,
+    "name": "Jamie",
+    "review": "Fastet Delivery",
+    "ratings": 3
+  },
+
+  {
+    "id": 5,
+    "name": "Mickel",
+    "review": "High Quality",
+    "ratings": 4
+  },
+
+  {
+    "id": 6,
+    "name": "Cardi",
+    "review": "Amazing Products",
+    "ratings": 5
   }
 ]
