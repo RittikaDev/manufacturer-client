@@ -69,6 +69,7 @@ const CheckoutForm = ({ payment }) => {
       //   store payment on database
       const payment = {
         payment: _id,
+        status: "Pending",
         transactionId: paymentIntent.id,
       };
       console.log(payment);

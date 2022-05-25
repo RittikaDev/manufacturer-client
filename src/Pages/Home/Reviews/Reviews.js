@@ -13,7 +13,7 @@ const Reviews = () => {
   return (
     <div className=" w-96 bg-base-100 shadow-xl mb-12 p-12 reviews">
       {review.map((rev) => (
-        <div className="inventory-text my-5">
+        <div className="inventory-text my-5" key={rev._id}>
           <div className="mt-1">
             <p className="inventory-textbox grid grid-cols-2">
               <p className="text-lg card-title">{rev.name}</p>

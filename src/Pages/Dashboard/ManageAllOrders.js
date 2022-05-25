@@ -13,19 +13,63 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/part").then((res) => res.json())
+    fetch("http://localhost:5000/tool").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading />;
   }
-  //   console.log(orders);
 
   const changeStatus = (id) => {
     // console.log(id);
-    refetch();
-    setStatus("Shipped");
+    // orders.map((orde) => {
+    //   if (orde._id === id) {
+    //     console.log(orde._id);
+    //     console.log(orde);
+    //     if (orde.paid === true) {
+    //       setStatus("Shipped");
+    //     }
+    //     // const order = {
+    //     //   orderID: orde._id,
+    //     //   status: "Shipped",
+    //     // };
+    //     // fetch(`http://localhost:5000/shipped/${id}`, {
+    //     //   method: "PATCH",
+    //     //   headers: {
+    //     //     "content-type": "application/json",
+    //     //   },
+    //     //   body: JSON.stringify(order),
+    //     // })
+    //     //   .then((res) => res.json())
+    //     //   .then((data) => {
+    //     //     console.log(data);
+    //     //   });
+    //   }
+    //   // return id;
+    // });
+    Swal.fire({
+      title: "Do you want to ship this product?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/shipped/${id}`, {
+          method: "PATCH",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // if (data.deletedCount > 0) {
+            toast.success(` is deleted.`);
+            //   setDeleteProduct(null);
+            refetch();
+          });
+      }
+    });
   };
-  //   console.log(status);
 
   //   Delete An Order
   const handleDelete = (id, name) => {
@@ -52,6 +96,7 @@ const ManageAllOrders = () => {
               toast.success(` ${name} is deleted.`);
               //   setDeleteProduct(null);
               refetch();
+              console.log(orders);
             }
             Swal.fire("Deleted!", "One item has been deleted.", "success");
           });
@@ -91,7 +136,7 @@ const ManageAllOrders = () => {
                   {order.price && order.paid && (
                     <div>
                       <p>
-                        {status === "" ? (
+                        {order.status === "Pending" ? (
                           <button
                             className="btn btn-xs btn-success"
                             onClick={() => changeStatus(order._id)}
@@ -100,7 +145,7 @@ const ManageAllOrders = () => {
                           </button>
                         ) : (
                           <button className="btn btn-xs btn-success">
-                            {status}
+                            {order.status}
                           </button>
                         )}
                       </p>

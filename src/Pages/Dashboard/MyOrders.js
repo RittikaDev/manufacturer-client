@@ -3,34 +3,89 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-
+  const {
+    data: myorder,
+    isLoading,
+    refetch,
+  } = useQuery("myorder", () =>
+    fetch(`http://localhost:5000/part?email=${user.email}`).then(
+      (res) => res.json()
+      // if (res.status === 401 || res.status === 403) {
+      //   signOut(auth);
+      //   localStorage.removeItem("accessToken");
+      //   navigate("/");
+      // }
+    )
+  );
+  if (isLoading) {
+    return <Loading />;
+  }
+  console.log(myorder);
   //   Get LoggedIn User's Orders
-  useEffect(() => {
-    if (user) {
-      fetch(`http://localhost:5000/part?email=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => {
-          console.log("res", res);
-          if (res.status === 401 || res.status === 403) {
-            signOut(auth);
-            localStorage.removeItem("accessToken");
-            navigate("/");
-          }
-          return res.json();
+  // useEffect(() => {
+  //   if (user) {
+  //     fetch(`http://localhost:5000/part?email=${user.email}`, {
+  //       method: "GET",
+  //       // headers: {
+  //       //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       // },
+  //     })
+  //       .then((res) => {
+  //         console.log("res", res);
+  //         if (res.status === 401 || res.status === 403) {
+  //           signOut(auth);
+  //           localStorage.removeItem("accessToken");
+  //           navigate("/");
+  //         }
+  //         return res.json();
+  //       })
+  //       .then((data) => {
+  //         console.log(data);
+  //         setOrders(data);
+  //       });
+  //   }
+  // }, [navigate, user]);
+  //   Delete An Order
+  const handleDelete = (id, name) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/part/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         })
-        .then((data) => setOrders(data));
-    }
-  }, [user]);
-
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              toast.success(` ${name} is deleted.`);
+              //   setDeleteProduct(null);
+              refetch();
+            }
+            Swal.fire("Deleted!", "One item has been deleted.", "success");
+          });
+      }
+    });
+  };
   return (
     <div>
       <h2>My Appointments: </h2>
@@ -44,10 +99,11 @@ const MyOrders = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Payment</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {orders?.map((order, index) => (
+            {myorder?.map((order, index) => (
               <tr>
                 <th>{index + 1}</th>
                 <td>{order.username}</td>
@@ -72,6 +128,16 @@ const MyOrders = () => {
                         </span>
                       </p>
                     </div>
+                  )}
+                </td>
+                <td>
+                  {order.price && !order.paid && (
+                    <button
+                      className="btn btn-xs btn-error"
+                      onClick={() => handleDelete(order._id, order.name)}
+                    >
+                      Cancel
+                    </button>
                   )}
                 </td>
               </tr>

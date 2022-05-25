@@ -5,8 +5,10 @@ import "./Parts.css";
 
 const Parts = () => {
   const [parts, setParts] = useState([]);
+  const [size, setSize] = useState(6);
+
   useEffect(() => {
-    fetch("http://localhost:5000/parts")
+    fetch(`http://localhost:5000/parts?size=${size}`)
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);
