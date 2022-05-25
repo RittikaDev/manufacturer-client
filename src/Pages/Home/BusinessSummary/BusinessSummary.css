@@ -56,14 +56,14 @@
 }
 .counts .count-box .fas {
   position: absolute;
-  top: -30px;
+  top: -65px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
-  background: red;
-  padding: 27px;
-  color: red;
-  /* border-radius: 50px; */
+  background: black;
+  padding: 20px;
+  color: white;
+  border-radius: 50px;
 }
 .counts .count-box .icofont {
   font-size: 32px;
@@ -72,7 +72,7 @@
 .counts .count-box h4 {
   font-size: 16px;
   display: block;
-  color: #fff;
+  color: black;
   padding-top: 15px;
 }
 

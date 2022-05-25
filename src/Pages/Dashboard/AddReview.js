@@ -30,7 +30,7 @@ const AddReview = () => {
   };
 
   return (
-    <form className="inventory-text mx-16 my-5" onSubmit={handleSubmit}>
+    <form className="inventory-text sm:mx-16 my-5" onSubmit={handleSubmit}>
       <div className="inventory-textbox mb-1">
         <h4 className="text-center font-bold">Write A Review</h4>
       </div>

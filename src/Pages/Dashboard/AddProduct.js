@@ -60,7 +60,7 @@ const AddProduct = () => {
   };
   return (
     <form
-      className="inventory-text mx-16 my-5"
+      className="inventory-text sm:mx-16 my-5"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="inventory-textbox mb-1">

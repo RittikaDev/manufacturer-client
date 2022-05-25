@@ -19,13 +19,7 @@ const Navbar = () => {
         <CustomLink to="/">Home</CustomLink>
       </li>
       <li>
-        <CustomLink to="/appointment">Appoinment</CustomLink>
-      </li>
-      <li>
-        <CustomLink to="/review">Review</CustomLink>
-      </li>
-      <li>
-        <CustomLink to="/contact">Contact</CustomLink>
+        <CustomLink to="/portfolio">My Portfolio</CustomLink>
       </li>
       <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
       <li>

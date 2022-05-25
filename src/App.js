@@ -18,6 +18,7 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
 function App() {
   return (
@@ -81,6 +82,7 @@ function App() {
         </Route>
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
+        <Route path="portfolio" element={<MyPortfolio />} />
       </Routes>
       <ToastContainer
         position="top-center"

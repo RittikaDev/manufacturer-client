@@ -28,7 +28,7 @@ const MyProfile = () => {
   }, [user]);
   console.log(userUpdate);
   return (
-    <form className="inventory-text mx-16 my-5">
+    <form className="inventory-text sm:mx-16 my-5">
       <div className="inventory-textbox mb-1">
         <h4 className="text-center font-bold">My Profile</h4>
       </div>

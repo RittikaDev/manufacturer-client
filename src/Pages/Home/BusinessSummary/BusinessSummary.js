@@ -1,55 +1,72 @@
 import React from "react";
 import "./BusinessSummary.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faHammer } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
 
 const BusinessSummary = () => {
-	return (
-		<div className="bussiness">
-			<div className="counts ">
-				<h2>Services I Provide</h2>
-				<div
-					data-aos="flip-left"
-					data-aos-easing="ease-out-cubic"
-					data-aos-duration="2000"
-				>
-					<div className="count-box">
-						<div data-aos="flip-left">
-							<div className="fas fa-code">bsjfgsk</div>
-						</div>
-						<h4>Web Development</h4>
-						<p>Front-end libaries and frameworks</p>
-					</div>
-				</div>
-			</div>
-			<div className="counts ">
-				<h2>Services I Provide</h2>
-				<div
-					data-aos="flip-left"
-					data-aos-easing="ease-out-cubic"
-					data-aos-duration="2000"
-				>
-					<div className="count-box">
-						<i className="fas fa-code"></i>
-						<h4>Web Development tt</h4>
-						<p>Front-end libaries and frameworks</p>
-					</div>
-				</div>
-			</div>
-			<div className="counts ">
-				<h2>Services I Provide</h2>
-				<div
-					data-aos="flip-left"
-					data-aos-easing="ease-out-cubic"
-					data-aos-duration="2000"
-				>
-					<div className="count-box">
-						<i data-aos="flip-left" className="fas fa-code"></i>
-						<h4>Web Development</h4>
-						<p>Front-end libaries and frameworks</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="bussiness">
+      <div className="counts ">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          <div className="count-box">
+            <div data-aos="flip-left">
+              <FontAwesomeIcon className="fas fa-code" icon={faUser}>
+                user
+              </FontAwesomeIcon>
+            </div>
+            <h4 className="font-bold">100+ Customers</h4>
+            <p>
+              Very proudly announcing we have served more than 100 customers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="counts ">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          <div className="count-box">
+            <div data-aos="flip-left">
+              <FontAwesomeIcon
+                className="fas fa-code"
+                icon={faHammer}
+              ></FontAwesomeIcon>
+            </div>
+            <h4 className="font-bold"> 50+ Parts</h4>
+
+            <p>Currently have over 50 Parts in stock. Growing on demand</p>
+          </div>
+        </div>
+      </div>
+      <div className="counts ">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          <div className="count-box">
+            <div data-aos="flip-left">
+              <FontAwesomeIcon
+                className="fas fa-code"
+                icon={faStar}
+              ></FontAwesomeIcon>
+            </div>
+            <h4 className="font-bold"> 33K+ Reviews</h4>
+            <p>
+              Super grateful to our customers for showring us with good reviews
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default BusinessSummary;
