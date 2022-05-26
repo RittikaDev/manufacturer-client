@@ -3,6 +3,9 @@ import "./MyPortfolio.css";
 import skills from "../../images/skills.jpg";
 import graduate from "../../images/graduate.jpg";
 import profile from "../../images/profile.png";
+import todo from "../../images/to-do.PNG";
+import famreit from "../../images/frameit.PNG";
+import dream from "../../images/dream.PNG";
 
 const MyPortfolio = () => {
   return (
@@ -124,11 +127,13 @@ const MyPortfolio = () => {
             </div>
             <div class="work-block">
               <div class="work-wrap">
-                <div class="left"></div>
+                <div class="left">
+                  <img src={todo} alt="" />
+                </div>
                 <div class="right">
                   <div class="content">
-                    <h1>Project name</h1>
-                    <p>Tech link</p>
+                    <h1>To-Do App</h1>
+                    <p>Live link : https://to-do-app-69d22.web.app/</p>
                   </div>
                 </div>
               </div>
@@ -137,15 +142,31 @@ const MyPortfolio = () => {
               <div class="work-wrap">
                 <div class="right1">
                   <div class="content">
-                    <h1>This is a heading</h1>
+                    <h1>Frame It </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quia assumenda dolore reprehenderit ullam blanditiis ex
-                      sapiente pariatur tempore incidunt facilis?
+                      Live Link : https://photography-service-3b352.web.app/
                     </p>
                   </div>
                 </div>
-                <div class="left1"></div>
+                <div class="left1">
+                  <img src={famreit} alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="work-block">
+              <div class="work-wrap">
+                <div class="left">
+                  <img src={dream} alt="" />
+                </div>
+                <div class="right">
+                  <div class="content">
+                    <h1>Dream-Catcher</h1>
+                    <p>
+                      Live link :
+                      https://dreamcatcher-convention-center.netlify.app/
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

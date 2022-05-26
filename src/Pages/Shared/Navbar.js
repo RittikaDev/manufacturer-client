@@ -11,8 +11,8 @@ const Navbar = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
-  console.log(user);
-  console.log(user?.displayName);
+  // console.log(user);
+  // console.log(user?.displayName);
   const menuItems = (
     <>
       <li>
@@ -20,6 +20,9 @@ const Navbar = () => {
       </li>
       <li>
         <CustomLink to="/portfolio">My Portfolio</CustomLink>
+      </li>
+      <li>
+        <CustomLink to="/blogs">Blogs</CustomLink>
       </li>
       <li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
       <li>

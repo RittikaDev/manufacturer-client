@@ -15,9 +15,10 @@ const BusinessSummary = () => {
         >
           <div className="count-box">
             <div data-aos="flip-left">
-              <FontAwesomeIcon className="fas fa-code" icon={faUser}>
-                user
-              </FontAwesomeIcon>
+              <FontAwesomeIcon
+                className="fas fa-code"
+                icon={faUser}
+              ></FontAwesomeIcon>
             </div>
             <h4 className="font-bold">100+ Customers</h4>
             <p>

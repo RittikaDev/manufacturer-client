@@ -19,6 +19,8 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
+import Blogs from "./Pages/Blogs/Blogs";
+import Footer from "./Pages/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -83,7 +85,9 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="portfolio" element={<MyPortfolio />} />
+        <Route path="blogs" element={<Blogs />} />
       </Routes>
+      <Footer />
       <ToastContainer
         position="top-center"
         autoClose={7000}
