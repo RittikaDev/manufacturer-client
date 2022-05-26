@@ -33,11 +33,10 @@ const Signup = () => {
     if (user || gUser) {
       navigate(from, { replace: true });
     }
-  }, [navigate, from, user]);
-
-  // if (token) {
-  //   navigate(from, { replace: true });
-  // }
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [from, gUser, navigate, token, user]);
 
   const onSubmit = async (data) => {
     console.log(data);

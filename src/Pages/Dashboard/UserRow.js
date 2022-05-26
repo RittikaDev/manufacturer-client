@@ -7,9 +7,9 @@ const UserRow = ({ user, refetch }) => {
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
+      // headers: {
+      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      // },
     })
       .then((res) => {
         if (res.status === 403) {

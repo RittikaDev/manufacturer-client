@@ -7,12 +7,11 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-// import useToken from "../../hooks/useToken";
+import useToken from "../../hooks/useToken";
 import login from "../../images/login.jpg";
 import Loading from "../Shared/Loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 const Login = () => {
   // Email & Password
@@ -21,7 +20,7 @@ const Login = () => {
   // google
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-  // const [token] = useToken(user || gUser);
+  const [token] = useToken(user || gUser);
   const {
     register,
     formState: { errors },
@@ -34,27 +33,22 @@ const Login = () => {
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
   useEffect(() => {
-    // console.log(gUser?.user?.displayName);
-    // if (token) {
-    //   navigate(from, { replace: true });
-    // }
+    console.log(gUser?.user?.displayName);
+    if (token) {
+      navigate(from, { replace: true });
+    }
     if (user || gUser) {
       navigate(from, { replace: true });
     }
-  }, [navigate, from, user, gUser]);
+  }, [navigate, from, user, gUser, token]);
 
   if (loading || gLoading) {
     return <Loading />;
   }
 
-  const onSubmit = async (datum) => {
-    const email = emailRef.current.value;
-    console.log(datum);
-    await signInWithEmailAndPassword(datum.email, datum.password);
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+  const onSubmit = (data) => {
     console.log(data);
-    localStorage.setItem("token", data.accessToken);
-    navigate(from, { replace: true });
+    signInWithEmailAndPassword(data.email, data.password);
   };
   const resetPassword = async () => {
     const email = emailRef.current.value;
