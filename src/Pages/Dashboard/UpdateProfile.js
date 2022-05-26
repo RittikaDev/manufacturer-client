@@ -1,6 +1,8 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 
 const UpdateProfile = () => {
@@ -30,7 +32,7 @@ const UpdateProfile = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("success", data);
-        alert("users added successfully!!!");
+        toast("Profile Updated Successfully!!!");
         e.target.reset();
       });
     console.log(user);

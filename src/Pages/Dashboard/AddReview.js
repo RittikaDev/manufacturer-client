@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import auth from "../../firebase.init";
 
 const AddReview = () => {
@@ -25,6 +28,7 @@ const AddReview = () => {
         .then((res) => {
           // console.log(res);
           const { data } = res;
+          toast("Review Added");
         });
     } else {
       setError("Please enter between 1 to 5");

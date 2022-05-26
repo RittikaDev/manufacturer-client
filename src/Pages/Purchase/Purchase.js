@@ -5,6 +5,8 @@ import useParts from "../../hooks/useParts";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Purchase = () => {
   const { id } = useParams();
@@ -72,6 +74,7 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((d) => {
         const { data } = d;
+        toast("Order Placed");
       });
   };
   return (

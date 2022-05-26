@@ -17,7 +17,7 @@ const DeleteModal = ({ deleteProduct, refetch, setDeleteProduct }) => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          toast.success(`Doctor: ${name} is deleted.`);
+          toast.success(`${name} is deleted.`);
           setDeleteProduct(null);
           refetch();
         }
