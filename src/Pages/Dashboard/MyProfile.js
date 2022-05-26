@@ -18,7 +18,7 @@ const MyProfile = () => {
   let uID = ascii_to_hex(user.uid).slice(0, 24);
   // console.log(uID);
   useEffect(() => {
-    const url = `http://localhost:5000/users?email=${user.email}`;
+    const url = `https://enigmatic-ridge-78563.herokuapp.com/users?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

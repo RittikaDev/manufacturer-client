@@ -18,7 +18,9 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery("myorder", () =>
-    fetch(`http://localhost:5000/part?email=${user.email}`).then(
+    fetch(
+      `https://enigmatic-ridge-78563.herokuapp.com/part?email=${user.email}`
+    ).then(
       (res) => res.json()
       // if (res.status === 401 || res.status === 403) {
       //   signOut(auth);
@@ -34,7 +36,7 @@ const MyOrders = () => {
   //   Get LoggedIn User's Orders
   // useEffect(() => {
   //   if (user) {
-  //     fetch(`http://localhost:5000/part?email=${user.email}`, {
+  //     fetch(`https://enigmatic-ridge-78563.herokuapp.com/part?email=${user.email}`, {
   //       method: "GET",
   //       // headers: {
   //       //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -67,7 +69,7 @@ const MyOrders = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/part/${id}`, {
+        fetch(`https://enigmatic-ridge-78563.herokuapp.com/part/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

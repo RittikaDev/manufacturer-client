@@ -19,7 +19,7 @@ const UpdateProfile = () => {
       linkedin: e.target.linkedin.value,
     };
     console.log(user);
-    const url = `http://localhost:5000/users/${id}`;
+    const url = `https://enigmatic-ridge-78563.herokuapp.com/users/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

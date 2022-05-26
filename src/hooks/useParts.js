@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useParts = (id) => {
   const [part, setPart] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`https://enigmatic-ridge-78563.herokuapp.com/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setPart(data));
   }, [id]);

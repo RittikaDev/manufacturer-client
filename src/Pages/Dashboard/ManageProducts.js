@@ -12,7 +12,9 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("http://localhost:5000/parts").then((res) => res.json())
+    fetch("https://enigmatic-ridge-78563.herokuapp.com/parts").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading />;

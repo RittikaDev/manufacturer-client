@@ -13,7 +13,9 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/tool").then((res) => res.json())
+    fetch("https://enigmatic-ridge-78563.herokuapp.com/tool").then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading />;
@@ -32,7 +34,7 @@ const ManageAllOrders = () => {
     //     //   orderID: orde._id,
     //     //   status: "Shipped",
     //     // };
-    //     // fetch(`http://localhost:5000/shipped/${id}`, {
+    //     // fetch(`https://enigmatic-ridge-78563.herokuapp.com/shipped/${id}`, {
     //     //   method: "PATCH",
     //     //   headers: {
     //     //     "content-type": "application/json",
@@ -56,7 +58,7 @@ const ManageAllOrders = () => {
       confirmButtonText: "Yes!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/shipped/${id}`, {
+        fetch(`https://enigmatic-ridge-78563.herokuapp.com/shipped/${id}`, {
           method: "PATCH",
         })
           .then((res) => res.json())
@@ -83,7 +85,7 @@ const ManageAllOrders = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/part/${id}`, {
+        fetch(`https://enigmatic-ridge-78563.herokuapp.com/part/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

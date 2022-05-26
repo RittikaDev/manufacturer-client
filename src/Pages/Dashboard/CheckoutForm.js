@@ -12,7 +12,7 @@ const CheckoutForm = ({ payment }) => {
 
   const { _id, price, email, username } = payment;
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://enigmatic-ridge-78563.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const CheckoutForm = ({ payment }) => {
         transactionId: paymentIntent.id,
       };
       console.log(payment);
-      fetch(`http://localhost:5000/part/${_id}`, {
+      fetch(`https://enigmatic-ridge-78563.herokuapp.com/part/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

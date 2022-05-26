@@ -20,10 +20,12 @@ const AddReview = () => {
         ratings: rating,
       };
       console.log(review);
-      axios.post("http://localhost:5000/reviews", review).then((res) => {
-        // console.log(res);
-        const { data } = res;
-      });
+      axios
+        .post("https://enigmatic-ridge-78563.herokuapp.com/reviews", review)
+        .then((res) => {
+          // console.log(res);
+          const { data } = res;
+        });
     } else {
       setError("Please enter between 1 to 5");
     }

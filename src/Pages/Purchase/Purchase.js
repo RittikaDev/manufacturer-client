@@ -62,7 +62,7 @@ const Purchase = () => {
       totalPrice: totalPrice,
     };
     console.log(orderParts);
-    fetch("http://localhost:5000/part", {
+    fetch("https://enigmatic-ridge-78563.herokuapp.com/part", {
       method: "POST",
       headers: {
         "content-type": "application/json",

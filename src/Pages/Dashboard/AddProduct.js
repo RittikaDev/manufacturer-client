@@ -38,7 +38,7 @@ const AddProduct = () => {
           };
           console.log(product);
           // Post to server
-          fetch("http://localhost:5000/parts", {
+          fetch("https://enigmatic-ridge-78563.herokuapp.com/parts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

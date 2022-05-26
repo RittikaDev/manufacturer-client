@@ -7,7 +7,7 @@ const Parts = () => {
   const [size, setSize] = useState(6);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/parts?size=${size}`)
+    fetch(`https://enigmatic-ridge-78563.herokuapp.com/parts?size=${size}`)
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);

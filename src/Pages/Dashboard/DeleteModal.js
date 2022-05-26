@@ -7,7 +7,7 @@ const DeleteModal = ({ deleteProduct, refetch, setDeleteProduct }) => {
   console.log(deleteProduct);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/parts/${_id}`, {
+    fetch(`https://enigmatic-ridge-78563.herokuapp.com/parts/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
