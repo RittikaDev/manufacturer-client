@@ -21,6 +21,7 @@ import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import Blogs from "./Pages/Blogs/Blogs";
 import Footer from "./Pages/Shared/Footer/Footer";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -86,6 +87,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="portfolio" element={<MyPortfolio />} />
         <Route path="blogs" element={<Blogs />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer

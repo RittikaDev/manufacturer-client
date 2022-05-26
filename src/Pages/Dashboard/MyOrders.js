@@ -88,8 +88,7 @@ const MyOrders = () => {
   };
   return (
     <div>
-      <h2>My Appointments: </h2>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto my-6">
         <table className="table w-full">
           <thead>
             <tr>

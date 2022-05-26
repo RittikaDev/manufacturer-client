@@ -5,7 +5,6 @@ import BusinessSummary from "../BusinessSummary/BusinessSummary";
 import ImageSlider from "../ImageSlider/ImageSlider";
 import Parts from "../Parts/Parts";
 import Reviews from "../Reviews/Reviews";
-import { SliderData } from "../SliderData";
 import Steps from "../Steps/Steps";
 import "./Banner.css";
 
@@ -65,7 +64,7 @@ const Banner = () => {
       <BusinessSummary />
       <Steps />
       <Reviews />
-      <ImageSlider slides={SliderData} />
+      <ImageSlider />
     </>
   );
 };

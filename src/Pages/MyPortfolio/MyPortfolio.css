@@ -187,7 +187,7 @@
 }
 
 .work-section .work-block {
-  min-height: 50vh;
+  min-height: 60vh;
   /* margin-bottom: 55px; */
   width: 100%;
   display: flex;
@@ -248,5 +248,7 @@
   font-weight: 500;
   line-height: 25px;
 }
-
+.work-section img {
+  height: 100%;
+}
 /* ------------- Work Section Ends  -------------*/

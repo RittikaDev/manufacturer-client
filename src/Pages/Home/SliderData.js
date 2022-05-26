@@ -1,6 +1,6 @@
 export const SliderData = [
   {
-    image: "hhttps://i.ibb.co/CMtvjnz/ssd.jpg",
+    image: "https://i.ibb.co/CMtvjnz/ssd.jpg",
   },
   {
     image: "https://i.ibb.co/26r8W1y/processor.jpg",

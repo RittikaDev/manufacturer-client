@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -9,6 +10,9 @@ import auth from "../../firebase.init";
 // import useToken from "../../hooks/useToken";
 import login from "../../images/login.jpg";
 import Loading from "../Shared/Loading";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Login = () => {
   // Email & Password
@@ -16,12 +20,15 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   // google
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   // const [token] = useToken(user || gUser);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const emailRef = useRef("");
+
   // navigate
   let navigate = useNavigate();
   let location = useLocation();
@@ -40,9 +47,20 @@ const Login = () => {
     return <Loading />;
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (datum) => {
+    const email = emailRef.current.value;
+    console.log(datum);
+    await signInWithEmailAndPassword(datum.email, datum.password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
+    localStorage.setItem("token", data.accessToken);
+    navigate(from, { replace: true });
+  };
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    // console.log(email);
+    await sendPasswordResetEmail(email);
+    toast("Sent email");
   };
   return (
     <div className="flex mt-7 justify-center items-center">
@@ -88,6 +106,7 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                ref={emailRef}
                 type="email"
                 placeholder="Your Email"
                 className="input input-bordered w-full max-w-xs"
@@ -162,6 +181,9 @@ const Login = () => {
             className="btn btn-outline"
           >
             Continue with google
+          </button>
+          <button onClick={resetPassword} className="btn btn-outline">
+            Reset Password
           </button>
         </div>
       </div>

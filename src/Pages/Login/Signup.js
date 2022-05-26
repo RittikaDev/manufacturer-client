@@ -13,7 +13,7 @@ import useToken from "../../hooks/useToken";
 const Signup = () => {
   // Email & Password
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   // Google
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 

@@ -9,8 +9,8 @@ const ProductRow = ({ product, index, refetch, setDeleteProduct }) => {
     <tr>
       <th>{index + 1}</th>
       <td>
-        <div class="avatar">
-          <div class="w-8 rounded">
+        <div className="avatar">
+          <div className="w-8 rounded">
             <img src={image} alt={name} />
           </div>
         </div>
@@ -23,7 +23,7 @@ const ProductRow = ({ product, index, refetch, setDeleteProduct }) => {
         <label
           onClick={() => setDeleteProduct(product)}
           for="delete-confirm-modal"
-          class="btn btn-xs btn-error"
+          className="btn btn-xs btn-error"
         >
           Delete
         </label>

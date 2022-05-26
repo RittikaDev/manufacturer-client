@@ -45,7 +45,7 @@ const AddReview = () => {
       <div className="grid grid-cols-2 mt-1">
         <p className="inventory-textbox">
           <textarea
-            class="textarea textarea-info w-full"
+            className="textarea textarea-info w-full"
             placeholder="Review..."
             name="review"
           ></textarea>
@@ -54,7 +54,7 @@ const AddReview = () => {
           <input
             type="number"
             placeholder="Ratings from 1 to 5"
-            class="input input-bordered w-full"
+            className="input input-bordered w-full"
             name="ratings"
           />
           {error ? <p className="text-red-500">{error}</p> : null}

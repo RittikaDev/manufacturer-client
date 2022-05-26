@@ -112,7 +112,7 @@ const Purchase = () => {
               type="text"
               placeholder="Type here"
               value={user?.displayName}
-              class="input input-bordered w-full "
+              className="input input-bordered w-full "
             />
           </p>
           <p className="inventory-textbox">
@@ -120,7 +120,7 @@ const Purchase = () => {
               type="text"
               placeholder="Type here"
               value={user?.email}
-              class="input input-bordered w-full"
+              className="input input-bordered w-full"
             />
           </p>
         </div>
@@ -129,14 +129,14 @@ const Purchase = () => {
             <input
               type="text"
               placeholder="Address"
-              class="input input-bordered w-full "
+              className="input input-bordered w-full "
             />
           </p>
           <p className="inventory-textbox">
             <input
               type="text"
               placeholder="Phone Number"
-              class="input input-bordered w-full "
+              className="input input-bordered w-full "
             />
           </p>
         </div>
@@ -149,7 +149,7 @@ const Purchase = () => {
             <input
               type="number"
               placeholder="Increase Amount"
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
               value={defaultInput}
             />
             <button className="btn py-2" onClick={decreaseQuantity}>
