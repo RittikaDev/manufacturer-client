@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./Parts.css";
 
 const Parts = () => {
 	const [parts, setParts] = useState([]);
-	const [size, setSize] = useState(6);
+	const [size] = useState(6);
 
 	useEffect(() => {
 		fetch(`https://enigmatic-ridge-78563.herokuapp.com/parts?size=${size}`)
 			.then((res) => res.json())
 			.then((data) => setParts(data));
 	}, [size]);
-	console.log(setSize);
 
 	return (
 		<>
@@ -56,7 +54,7 @@ const Parts = () => {
 				<div className="page-inner">
 					<div className="cards mx-auto">
 						{parts.map((part) => (
-							<div className="el-wrapper">
+							<div className="el-wrapper" key={part._id}>
 								<div className="box-up">
 									<img className="img" src={part.image} alt="" />
 

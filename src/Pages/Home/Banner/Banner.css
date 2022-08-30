@@ -4,10 +4,6 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow-x: hidden;
-	/* height: 80vh; */
-	/* filter: grayscale(55%); */
-	/* filter: blur(1px); */
-	/* -webkit-filter: blur(8px); */
 }
 img {
 	margin-left: auto;
@@ -22,7 +18,8 @@ video {
 	margin-top: -20%;
 	margin-left: -53px;
 	background-color: #000000;
-	opacity: 0.9;
+	opacity: 0.8;
+	filter: grayscale(60%);
 	mix-blend-mode: multiply;
 	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
