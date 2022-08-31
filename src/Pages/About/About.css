@@ -12,7 +12,7 @@
 	width: 80%;
 	height: auto;
 	min-height: 400px;
-	/* background: #053742; */
+	background: #053742;
 	margin: 3.5rem auto 1.5rem;
 	padding: 2rem 1rem;
 	color: #e8f0f2;
@@ -48,4 +48,5 @@ ul.nav li:hover {
 }
 ul.nav li.active {
 	background: rgb(234 179 8 /1);
+	/* background: #053742; */
 }

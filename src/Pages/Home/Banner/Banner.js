@@ -70,8 +70,8 @@ const Banner = () => {
 				</div>
 			</div>
 			<Parts />
-			<Services />
 			<FoundersNote />
+			<Services />
 			<BusinessSummary />
 			<Steps />
 			<Reviews />

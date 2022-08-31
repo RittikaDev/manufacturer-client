@@ -50,7 +50,7 @@ const Parts = () => {
 					</article>
 				))}
 			</section> */}
-			<div className="container page-wrapper mx-auto">
+			<div className="container page-wrapper mx-auto z-40">
 				<div className="page-inner">
 					<div className="cards mx-auto">
 						{parts.map((part) => (
