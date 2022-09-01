@@ -3,198 +3,199 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import signupp from "../../images/signup.jpg";
 import {
-  useCreateUserWithEmailAndPassword,
-  useSignInWithGoogle,
-  useUpdateProfile,
+	useCreateUserWithEmailAndPassword,
+	useSignInWithGoogle,
+	useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
+import "./Login.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const Signup = () => {
-  // Email & Password
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  // Google
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+	// Email & Password
+	const [createUserWithEmailAndPassword, user, loading, error] =
+		useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+	// Google
+	const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  // update profile
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const [token] = useToken(user || gUser);
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  // navigate
-  let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-  useEffect(() => {
-    if (user || gUser) {
-      navigate(from, { replace: true });
-    }
-    if (token) {
-      navigate(from, { replace: true });
-    }
-  }, [from, gUser, navigate, token, user]);
+	// update profile
+	const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+	const [token] = useToken(user || gUser);
+	const {
+		register,
+		formState: { errors },
+		handleSubmit,
+	} = useForm();
+	// navigate
+	let navigate = useNavigate();
+	let location = useLocation();
+	let from = location.state?.from?.pathname || "/";
+	useEffect(() => {
+		if (user || gUser) {
+			navigate(from, { replace: true });
+		}
+		if (token) {
+			navigate(from, { replace: true });
+		}
+	}, [from, gUser, navigate, token, user]);
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
-  };
-  return (
-    <div className="flex mt-7 justify-center items-center">
-      <div className="card w-96 bg-base-100 shadow-xl mr-1.5 mt-4 ">
-        <div
-          className="card-body"
-          style={{ paddingLeft: "0", paddingRight: "0" }}
-        >
-          <img src={signupp} style={{ height: "100%" }} alt="" />
-        </div>
-      </div>
-      <div className="card w-96 bg-base-100 shadow-xl px-3">
-        <div className="card-body">
-          <h2 className="text-center text-2xl font-bold">SIGN UP</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Your name"
-                className="input input-bordered w-full max-w-xs"
-                {...register("name", {
-                  required: { value: true, message: "Name is required" },
-                })}
-              />
-              <label className="label">
-                {errors.name?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.name.message}
-                  </span>
-                )}
-                {errors.name?.type === "pattern" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.name.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="input input-bordered w-full max-w-xs"
-                {...register("email", {
-                  required: { value: true, message: "Email is required" },
-                  pattern: {
-                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                    message: "Provide a valid email", // JS only: <p>error message</p> TS only support string
-                  },
-                })}
-              />
-              <label className="label">
-                {errors.email?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="Your Password"
-                className="input input-bordered w-full max-w-xs"
-                {...register("password", {
-                  required: { value: true, message: "Password is required" },
-                  minLength: {
-                    value: 6,
-                    message: "Must be six characters or longer", // JS only: <p>error message</p> TS only support string
-                  },
-                })}
-              />
-              <label className="label">
-                {errors.password?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
-                {errors.password?.type === "minLength" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Confirm Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                className="input input-bordered w-full max-w-xs"
-                {...register("cpassword", {
-                  required: { value: true, message: "Password is required" },
-                  minLength: {
-                    value: 6,
-                    message: "Password & Confirm Password does not match", // JS only: <p>error message</p> TS only support string
-                  },
-                })}
-              />
-              <label className="label">
-                {errors.cpassword?.type === "required" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.cpassword.message}
-                  </span>
-                )}
-                {errors.cpassword !== errors.password && (
-                  <span className="label-text-alt text-red-500">
-                    Password & Confirm Password does not match
-                  </span>
-                )}
-              </label>
-            </div>
-            <input
-              className="btn w-full max-w-xs mt-4"
-              type="submit"
-              value="SiGNUP"
-            />
-          </form>
-
-          <p>
-            <small>
-              Already Have An Account?{" "}
-              <Link className="text-primary" to="/login">
-                Login
-              </Link>
-            </small>
-          </p>
-          <div className="divider">OR</div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="btn btn-outline"
-          >
-            Continue with google
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+	const onSubmit = async (data) => {
+		console.log(data);
+		await createUserWithEmailAndPassword(data.email, data.password);
+		await updateProfile({ displayName: data.name });
+	};
+	return (
+		<div className="screen mx-auto my-10">
+			<div className="screen__content">
+				<form className="login" onSubmit={handleSubmit(onSubmit)}>
+					<div className="login__field">
+						<FontAwesomeIcon
+							className="login__icon ml-3 mt-1"
+							icon={faUser}
+						></FontAwesomeIcon>
+						<input
+							type="text"
+							className="login__input ml-2"
+							placeholder="Username"
+							{...register("name", {
+								required: { value: true, message: "Name is required" },
+							})}
+						/>
+						<label className="label">
+							{errors.name?.type === "required" && (
+								<span className="label-text-alt text-red-500">
+									{errors.name.message}
+								</span>
+							)}
+							{errors.name?.type === "pattern" && (
+								<span className="label-text-alt text-red-500">
+									{errors.name.message}
+								</span>
+							)}
+						</label>
+					</div>
+					<div className="login__field">
+						<FontAwesomeIcon
+							className="login__icon ml-3 mt-1"
+							icon={faEnvelope}
+						></FontAwesomeIcon>
+						<input
+							type="email"
+							className="login__input ml-2"
+							placeholder="Email"
+							{...register("email", {
+								required: { value: true, message: "Email is required" },
+								pattern: {
+									value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+									message: "Provide a valid email",
+								},
+							})}
+						/>
+						<label className="label">
+							{errors.email?.type === "required" && (
+								<span className="label-text-alt text-red-500">
+									{errors.email.message}
+								</span>
+							)}
+							{errors.email?.type === "pattern" && (
+								<span className="label-text-alt text-red-500">
+									{errors.email.message}
+								</span>
+							)}
+						</label>
+					</div>
+					<div className="login__field">
+						<FontAwesomeIcon
+							className="login__icon ml-3 mt-1"
+							icon={faLock}
+						></FontAwesomeIcon>
+						<input
+							type="password"
+							className="login__input ml-2"
+							placeholder="Password"
+							{...register("password", {
+								required: { value: true, message: "Password is required" },
+								minLength: {
+									value: 6,
+									message: "Must be six characters or longer", // JS only: <p>error message</p> TS only support string
+								},
+							})}
+						/>
+						<label className="label">
+							{errors.password?.type === "required" && (
+								<span className="label-text-alt text-red-500">
+									{errors.password.message}
+								</span>
+							)}
+							{errors.password?.type === "minLength" && (
+								<span className="label-text-alt text-red-500">
+									{errors.password.message}
+								</span>
+							)}
+						</label>
+					</div>
+					<div className="login__field">
+						<FontAwesomeIcon
+							className="login__icon ml-3 mt-1"
+							icon={faLock}
+						></FontAwesomeIcon>
+						<input
+							type="password"
+							className="login__input ml-2"
+							placeholder="Confirm Password"
+							{...register("cpassword", {
+								required: { value: true, message: "Password is required" },
+								minLength: {
+									value: 6,
+									message: "Password & Confirm Password does not match",
+								},
+							})}
+						/>
+						<label className="label">
+							{errors.cpassword?.type === "required" && (
+								<span className="label-text-alt text-red-500">
+									{errors.cpassword.message}
+								</span>
+							)}
+							{errors.cpassword !== errors.password && (
+								<span className="label-text-alt text-red-500">
+									Password & Confirm Password does not match
+								</span>
+							)}
+						</label>
+					</div>
+					<button className="button login__submit">
+						<span className="button__text">Sign Up Now</span>
+						<i className="button__icon fas fa-chevron-right"></i>
+					</button>
+				</form>
+				<div className="social-login flex ">
+					<h3 className="uppercase text-xl font-black">Sign up via</h3>
+					<span
+						style={{
+							marginTop: "-8px",
+							boxShadow: "3px 0px 10px 3px #101731;",
+						}}
+					>
+						<FontAwesomeIcon
+							className="ml-3 border-2 border-stone-600 p-3"
+							icon={faGoogle}
+							onClick={() => signInWithGoogle()}
+						></FontAwesomeIcon>
+					</span>
+				</div>
+			</div>
+			<div className="screen__background">
+				<span className="screen__background__shape screen__background__shape4"></span>
+				<span className="screen__background__shape screen__background__shape3"></span>
+				<span className="screen__background__shape screen__background__shape2"></span>
+				<span className="screen__background__shape screen__background__shape1"></span>
+			</div>
+		</div>
+	);
 };
 
 export default Signup;

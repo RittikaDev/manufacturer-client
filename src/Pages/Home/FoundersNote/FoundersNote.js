@@ -3,31 +3,27 @@ import "./FoundersNote.css";
 
 const FoundersNote = () => {
 	return (
-		<div className="founders-note bg-slate-800 w-screen z-0">
-			<div className="grid grid-cols-[750px_minmax(800px,_1fr)] mt-20">
+		<div className="founders-note bg-slate-800 w-screen z-0 ">
+			<div className="grid grid-cols-[810px_minmax(35px,_1fr)] mt-20 mx-16">
 				<div
-					style={{ padding: "240px 12% 240px 30%" }}
-					className=" rounded-l-3xl text-left"
+					style={{ padding: "240px 2% 240px 30%" }}
+					className="rounded-l-3xl text-left mt-14"
 				>
-					<h1 className="text-white text-6xl font-black">Services </h1>
+					<h1 className="text-white text-xl font-black">Few Words From Us </h1>
+					<h1 className="text-white text-4xl font-black mt-6">
+						Founder's Note
+					</h1>
 					<p className="text-gray-200 mt-6 leading-6">
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit aenean.
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo
+						quo ut, voluptate, quia asperiores tenetur, quod sunt molestias
+						temporibus sed recusandae repellat vel
 					</p>
 				</div>
 				<div className="founder-body">
-					<h1 data-text="back in black" className="mt-14 founder-h1 z-40">
-						back in black
+					<h1 data-text="TechWorld" className=" founder-h1 z-40">
+						TechWorld
 					</h1>
 				</div>
-
-				{/* <p className="md:text-9xl text-3xl text-center font-black text-slate-200 mt-60">
-					<span
-						className="bg-gradient-to-r from-slate-200 via-red-100 to-red-700 bg-clip-text text-transparent"
-						style={{ textShadow: "5px 0px 10px black" }}
-					>
-						TechWorld
-					</span>
-				</p> */}
 			</div>
 			<div className="container-founder mx-auto">
 				<div className="card-founder">

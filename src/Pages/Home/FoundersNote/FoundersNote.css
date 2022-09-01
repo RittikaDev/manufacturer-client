@@ -121,15 +121,17 @@ svg {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	margin-left: -180px;
 	/* background-color: #141e30;
 	background: linear-gradient(to right, #24243e, #141e30, #0f0c29); */
 }
 .founder-h1 {
 	text-transform: Uppercase;
-	margin-bottom: 0.5em;
+	/* margin-bottom: 0.5em; */
 	font-family: "Rubik", sans-serif;
 	font-size: 6rem;
 	color: #e4e5e6;
+	margin-top: -150px;
 }
 
 .founder-h1 {
@@ -158,12 +160,4 @@ svg {
 	text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5),
 		20px 20px 20px rgba(0, 0, 0, 0.4), 30px 30px 30px rgba(0, 0, 0, 0.1);
 	mix-blend-mode: multiply;
-}
-
-h2 {
-	margin-top: -1.15em;
-	font-family: "Pirata One", cursive;
-	font-size: 3rem;
-	color: #f7971e;
-	text-align: center;
 }
