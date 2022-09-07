@@ -104,7 +104,7 @@ const Navbar = () => {
 				{/* For bigger screen */}
 				<ul className="menu menu-horizontal p-0">{menuItems}</ul>
 			</div>
-			<div className="navbar-end">
+			{/* <div className="navbar-end">
 				<label
 					tabIndex="1"
 					htmlFor="dashboard-sidebar"
@@ -125,7 +125,7 @@ const Navbar = () => {
 						/>
 					</svg>
 				</label>
-			</div>
+			</div> */}
 		</div>
 	);
 };
