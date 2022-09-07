@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
 import logo from "../../images/Logo2.PNG";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
 	const [user] = useAuthState(auth);
@@ -20,7 +21,35 @@ const Navbar = () => {
 			{/* <li>
 				<CustomLink to="/blogs">Blogs</CustomLink>
 			</li> */}
-			<li>{user && <CustomLink to="/dashboard">Dashboard</CustomLink>}</li>
+			<li>
+				<HashLink
+					className="nav-link"
+					style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}
+					to="/#parts"
+					smooth={true}
+					duration={500}
+					exact="true"
+				>
+					Products
+				</HashLink>
+			</li>
+			<li>
+				<HashLink
+					className="nav-link"
+					style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}
+					to="/#foundersNote"
+					smooth={true}
+					duration={500}
+					exact="true"
+				>
+					Founder's Note
+				</HashLink>
+			</li>
+			{user ? (
+				<li>
+					<CustomLink to="/dashboard">Dashboard</CustomLink>
+				</li>
+			) : null}
 			<li>
 				<CustomLink to="/about">About Us</CustomLink>
 			</li>
@@ -71,7 +100,7 @@ const Navbar = () => {
 				</div>
 				<img src={logo} alt="TechWorld" height="130" width="150" />
 			</div>
-			<div className="navbar-center hidden lg:flex">
+			<div className="navbar-end hidden lg:flex">
 				{/* For bigger screen */}
 				<ul className="menu menu-horizontal p-0">{menuItems}</ul>
 			</div>

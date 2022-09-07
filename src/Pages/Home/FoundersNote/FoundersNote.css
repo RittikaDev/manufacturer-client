@@ -4,18 +4,17 @@
 }
 .container-founder {
 	/* position: absolute; */
-	height: 450px;
+	height: 500px;
 	width: 800px;
 	/* top: 60px; */
 	left: calc(50% - 300px);
 	display: flex;
 }
-
 .card-founder {
 	display: flex;
 	height: 280px;
 	width: 500px;
-	background-color: #17141d;
+	background-color: #28272a;
 	border-radius: 10px;
 	box-shadow: -1rem 0 3rem #000;
 	/*   margin-left: -50px; */
@@ -120,14 +119,15 @@ svg {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
-	margin-left: -180px;
+	/* min-height: 100vh; */
+	margin-left: -122px;
+	margin-top: 275px;
 	/* background-color: #141e30;
 	background: linear-gradient(to right, #24243e, #141e30, #0f0c29); */
 }
 .founder-h1 {
 	text-transform: Uppercase;
-	/* margin-bottom: 0.5em; */
+	margin-bottom: -1.5em;
 	font-family: "Rubik", sans-serif;
 	font-size: 6rem;
 	color: #e4e5e6;
@@ -136,7 +136,7 @@ svg {
 
 .founder-h1 {
 	position: relative;
-	background: linear-gradient(to right, #24243e, #141e30, #0f0c29);
+	background: linear-gradient(to right, #616162, #525353, #4a4a4a);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -152,7 +152,7 @@ svg {
 
 .founder-h1:before {
 	z-index: -1;
-	text-shadow: -0.001em -0.001em 1px rgba(255, 255, 255, 0.15);
+	text-shadow: -0.001em -0.001em 1px rgba(209, 209, 209, 0.15);
 }
 
 .founder-h1:after {
@@ -160,4 +160,7 @@ svg {
 	text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5),
 		20px 20px 20px rgba(0, 0, 0, 0.4), 30px 30px 30px rgba(0, 0, 0, 0.1);
 	mix-blend-mode: multiply;
+}
+.div {
+	box-shadow: 3px 0px 10px 3px rgb(64, 62, 62);
 }

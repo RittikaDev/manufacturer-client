@@ -12,7 +12,7 @@ const Parts = () => {
 	}, [size]);
 
 	return (
-		<div className="container page-wrapper mx-auto z-40">
+		<div className="container page-wrapper mx-auto z-40" id="parts">
 			<div className="page-inner">
 				<div className="cards mx-auto">
 					{parts.map((part) => (

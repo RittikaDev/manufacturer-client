@@ -21,7 +21,7 @@
 .screen {
 	background: linear-gradient(90deg, #3b3850, #b4b3be);
 	position: relative;
-	height: 600px;
+	height: 700px;
 	width: 960px;
 	box-shadow: 0px 0px 24px #838191;
 }
@@ -158,8 +158,20 @@
 	bottom: 0px;
 	right: 0px;
 	color: #fff;
+	transition: all 0.3s ease-in-out;
 }
-
+.social-login1 {
+	height: 0;
+	bottom: 320px;
+}
+.googleIcon {
+	box-shadow: 3px 0px 10px 3px #101731;
+}
+.social-login:hover .googleIcon,
+.loginDiv:hover .googleIcon {
+	transition: all 0.3s ease-in-out;
+	transform: scale(1.2);
+}
 .social-icons {
 	display: flex;
 	align-items: center;

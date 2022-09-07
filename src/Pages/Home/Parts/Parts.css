@@ -1,5 +1,5 @@
 .cards {
-	width: 75%;
+	/* width: 75%; */
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	/* grid-gap: 10px; */
@@ -10,14 +10,11 @@
 		grid-template-columns: repeat(1, 1fr);
 	}
 }
-/* .card--1 .card__img,
-.card--1 .card__img--hover {
-  background-image: url("../../../images/ram.jpg");
-} */
-/* .card--3 .card__img--hover {
-  background-image: url("../../../images/ram.jpg");
-} */
-
+@media (max-width: 936px) {
+	.cards {
+		width: 75%;
+	}
+}
 .card--2 .card__img,
 .card--2 .card__img--hover {
 	background-image: url("../../../images/ssd.jpg");
@@ -138,19 +135,6 @@
 	opacity: 1;
 }
 
-/* New Card Product */
-/* .d-flex {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-} */
-
-/* .align-center {
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-} */
-
 .flex-centerY-centerX {
 	justify-content: center;
 	-webkit-box-pack: center;
@@ -164,16 +148,6 @@
 .page-wrapper {
 	margin-top: -140px;
 }
-/* .page-wrapper {
-	height: 100%;
-	display: table;
-}
-
-.page-wrapper .page-inner {
-	display: table-cell;
-	vertical-align: middle;
-} */
-
 .el-wrapper {
 	width: 360px;
 	padding: 15px;
@@ -213,11 +187,9 @@
 }
 
 .el-wrapper:hover .img {
-	webkit-filter: blur(7px);
 	-o-filter: blur(7px);
 	-ms-filter: blur(7px);
 	filter: blur(7px);
-	filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
 	opacity: 0.4;
 }
 

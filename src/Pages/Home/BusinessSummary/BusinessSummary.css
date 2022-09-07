@@ -1,15 +1,15 @@
 .bussiness {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	margin-top: 100px;
+	margin-bottom: 100px;
 }
 @media (max-width: 768px) {
-  .bussiness {
-    grid-template-columns: repeat(1, 1fr);
-  }
+	.bussiness {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 /* .counts {
 	background: rgba(10, 1, 1, 0.7);
@@ -17,67 +17,67 @@
 	padding: 60px 10px 100px;
 } */
 .counts h2 {
-  text-align: center;
-  padding-bottom: 60px;
+	text-align: center;
+	padding-bottom: 60px;
 }
 .counts h2::before {
-  content: "";
-  width: 360px;
-  height: 1px;
-  display: inline-block;
-  background: var(--green-color);
-  margin: 6px 10px;
-  margin-left: -400px;
+	content: "";
+	width: 360px;
+	height: 1px;
+	display: inline-block;
+	background: var(--green-color);
+	margin: 6px 10px;
+	margin-left: -400px;
 }
 .counts h2::after {
-  content: "";
-  width: 360px;
-  height: 1px;
-  display: inline-block;
-  background: var(--green-color);
-  margin: 6px 10px;
-  margin-right: -400px;
+	content: "";
+	width: 360px;
+	height: 1px;
+	display: inline-block;
+	background: var(--green-color);
+	margin: 6px 10px;
+	margin-right: -400px;
 }
 
 .counts .row {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
 }
 .counts .count-box {
-  padding: 30px 30px 25px 30px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 3px 0px 10px 3px #101731;
-  transition: transform 3s;
-  transform-style: preserve-3d;
+	padding: 30px 30px 25px 30px;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.08);
+	box-shadow: 3px 0px 10px 3px #101731;
+	transition: transform 3s;
+	transform-style: preserve-3d;
 }
 .counts .count-box .fas {
-  position: absolute;
-  top: -65px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-  background: black;
-  padding: 20px;
-  color: white;
-  border-radius: 50px;
+	position: absolute;
+	top: -65px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 28px;
+	background: black;
+	padding: 20px;
+	color: white;
+	border-radius: 50px;
 }
 .counts .count-box .icofont {
-  font-size: 32px;
-  font-weight: 900;
+	font-size: 32px;
+	font-weight: 900;
 }
 .counts .count-box h4 {
-  font-size: 16px;
-  display: block;
-  color: black;
-  padding-top: 15px;
+	font-size: 16px;
+	display: block;
+	color: black;
+	padding-top: 15px;
 }
 
 .counts .count-box p {
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
 }

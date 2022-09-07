@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import signupp from "../../images/signup.jpg";
+
 import {
 	useCreateUserWithEmailAndPassword,
 	useSignInWithGoogle,
@@ -51,6 +51,7 @@ const Signup = () => {
 		<div className="screen mx-auto my-10">
 			<div className="screen__content">
 				<form className="login" onSubmit={handleSubmit(onSubmit)}>
+					<h1 className="font-black uppercase text-3xl mb-10">Sign Up</h1>
 					<div className="login__field">
 						<FontAwesomeIcon
 							className="login__icon ml-3 mt-1"
@@ -177,14 +178,33 @@ const Signup = () => {
 					<span
 						style={{
 							marginTop: "-8px",
-							boxShadow: "3px 0px 10px 3px #101731;",
 						}}
 					>
 						<FontAwesomeIcon
-							className="ml-3 border-2 border-stone-600 p-3"
+							className="ml-3 border-2 border-stone-600 p-3 googleIcon"
 							icon={faGoogle}
 							onClick={() => signInWithGoogle()}
 						></FontAwesomeIcon>
+					</span>
+				</div>
+				<div
+					className="social-login flex "
+					style={{ marginBottom: "-40px", width: "380px" }}
+				>
+					<h3 className="uppercase text-lg font-black ml-4 mr-3 mt-4">
+						Already Have An Account?
+					</h3>
+					<span
+						style={{
+							marginTop: "18px",
+						}}
+					>
+						<Link
+							className=" border-2 border-stone-600 p-3 googleIcon z-50"
+							to="/login"
+						>
+							Log In
+						</Link>
 					</span>
 				</div>
 			</div>
