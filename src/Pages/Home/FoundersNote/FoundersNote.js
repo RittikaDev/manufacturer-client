@@ -1,4 +1,5 @@
 import React from "react";
+import CardBoilerPlate from "./CardBoilerPlate";
 import "./FoundersNote.css";
 
 const FoundersNote = () => {
@@ -7,7 +8,7 @@ const FoundersNote = () => {
 			id="foundersNote"
 			className="founders-note bg-zinc-800 w-screen z-0 mt-24"
 		>
-			<div className="grid grid-cols-[885px_minmax(35px   ,_1fr)] my-20 mx-16">
+			<div className="grid grid-cols-[885px_minmax(35px,_1fr)] my-20 mx-16">
 				<div
 					style={{
 						padding: "50px 2% 50px 15%",
@@ -34,55 +35,26 @@ const FoundersNote = () => {
 				</div>
 			</div>
 			<div className="container-founder mx-auto mt-28">
-				<div className="card-founder">
-					<h3 className="title">Card 1</h3>
-					<div className="bar">
-						<div className="emptybar"></div>
-						<div className="filledbar"></div>
-					</div>
-					<div className="circle">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-							<circle className="stroke" cx="60" cy="60" r="50" />
-						</svg>
-					</div>
-				</div>
-				<div className="card-founder">
-					<h3 className="title">Card 2</h3>
-					<div className="bar">
-						<div className="emptybar"></div>
-						<div className="filledbar"></div>
-					</div>
-					<div className="circle">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-							<circle className="stroke" cx="60" cy="60" r="50" />
-						</svg>
-					</div>
-				</div>
-				<div className="card-founder">
-					<h3 className="title">Card 3</h3>
-					<div className="bar">
-						<div className="emptybar"></div>
-						<div className="filledbar"></div>
-					</div>
-					<div className="circle">
-						{/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-						<circle className="stroke" cx="60" cy="60" r="50" />
-					</svg> */}
-						<p className="para">jfvgishgosghs</p>
-					</div>
-				</div>
-				<div className="card-founder">
-					<h3 className="title">Card 4</h3>
-					<div className="bar">
-						<div className="emptybar"></div>
-						<div className="filledbar"></div>
-					</div>
-					<div className="circle">
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-							<circle className="stroke" cx="60" cy="60" r="50" />
-						</svg>
-					</div>
-				</div>
+				<CardBoilerPlate
+					heading={"2001"}
+					paragraph={"Journey Started"}
+					className={"mt-12 mr-44 "}
+				/>
+				<CardBoilerPlate
+					heading={"2002"}
+					paragraph={"Revolutional Technology"}
+					className={"mt-6 pt-2 mr-44 "}
+				/>
+				<CardBoilerPlate
+					heading={"2003"}
+					paragraph={"Collaboration With High End Brands"}
+					className={"mt-6 mr-44 "}
+				/>
+				<CardBoilerPlate
+					heading={"2006"}
+					paragraph={"Recognized As One Of The Lead  Manufacturing Team"}
+					className={"mt-1 mr-44 "}
+				/>
 			</div>
 		</div>
 	);

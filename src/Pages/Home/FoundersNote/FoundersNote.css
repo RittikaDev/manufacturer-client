@@ -69,11 +69,11 @@
 	background: rgb(0, 154, 217);
 	background: linear-gradient(
 		90deg,
-		rgba(0, 154, 217, 1) 0%,
-		rgba(217, 147, 0, 1) 65%,
-		rgba(255, 186, 0, 1) 100%
+		rgb(72, 10, 40) 0%,
+		rgb(188, 94, 62) 65%,
+		rgb(176, 86, 21) 100%
 	);
-	transition: 0.6s ease-out;
+	transition: 0.8s ease-out;
 }
 
 .card-founder:hover .filledbar {
@@ -83,7 +83,7 @@
 
 .circle {
 	position: absolute;
-	top: 150px;
+	top: 130px;
 	left: calc(50% - 60px);
 }
 
@@ -91,26 +91,21 @@
 	stroke: white;
 	stroke-dasharray: 360;
 	stroke-dashoffset: 360;
-	transition: 0.6s ease-out;
+	stroke-opacity: 0.3;
+	transition: 0.8s ease-out;
 }
 svg {
 	fill: #17141d;
-	stroke-width: 2px;
+	stroke-width: 2.5px;
 }
 
-.card-founder:hover .stroke {
+.card-founder:hover .stroke,
+.card-founder:hover .para {
 	stroke-dashoffset: 100;
-	transition: 0.6s ease-out;
-}
-.para {
-	display: none;
-
-	/* transition: all 2s ease-in-out; */
+	transition: 0.6s ease-in-out;
 }
 .card-founder:hover .para {
-	display: block;
 	color: white;
-	/* transition: all 2s ease-in-out; */
 }
 
 /* Text */
@@ -163,4 +158,8 @@ svg {
 }
 .div {
 	box-shadow: 3px 0px 10px 3px rgb(64, 62, 62);
+}
+
+.new-line {
+	white-space: pre-line;
 }
