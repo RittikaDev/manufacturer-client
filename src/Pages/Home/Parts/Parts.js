@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Parts.css";
 
 const Parts = () => {
@@ -42,7 +43,9 @@ const Parts = () => {
 								<p className="cart" href="#">
 									<span className="price">${part.price}</span>
 									<span className="add-to-cart">
-										<span className="txt">Add in cart</span>
+										<Link className="txt" to={`/purchase/${part._id}`}>
+											Add in cart
+										</Link>
 									</span>
 								</p>
 							</div>
